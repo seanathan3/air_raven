@@ -1,18 +1,9 @@
-import http.client
+import requests
+from opensky_api import OpenSkyApi
 
-conn = http.client.HTTPSConnection("travel-advisor.p.rapidapi.com")
+url = "https://www.example.com"
 
-payload = "{\"contentType\":\"hotel\",\"contentId\":\"4172546\",\"questionId\":\"8393250\",\"pagee\":0,\"updateToken\":\"\"}"
+file = requests.get(url)
 
-headers = {
-    'x-rapidapi-key': "838acae028msh99bfae513199ebbp1415a4jsn4ae8b5fc2bb8",
-    'x-rapidapi-host': "travel-advisor.p.rapidapi.com",
-    'Content-Type': "application/json"
-}
+print(file.text)
 
-conn.request("POST", "/answers/v2/list?currency=USD&units=km&lang=en_US", payload, headers)
-
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode("utf-8"))
