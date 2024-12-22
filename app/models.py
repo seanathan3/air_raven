@@ -9,4 +9,7 @@ class Flight(models.Model):
     flight_number = models.CharField(max_length=20)
     carrier = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.flight_number
+
 

@@ -1,7 +1,28 @@
-body * {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
 }
 
 h1 {
-    background-color: blue;
+    background-color: rgba(100, 200, 255);
+    width: 800px;
+    height: 50px;
+    text-align: center;
+    border-radius:50px;
+}
+
+div.flight-list {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+div.flight-item {
+    display: flex;
+    width: 800px;
+    justify-content: space-between;
+    padding: 10px;
 }
