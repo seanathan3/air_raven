@@ -1,13 +1,14 @@
-import json
-import requests
 from opensky_api import OpenSkyApi
+import time
 
-url = "https://opensky-network.org/api/flights/departure?airport=KJFK&begin=1734696060&end=1734699660"
+api = OpenSkyApi()
+s = api.get_states()
+if s is not None:
+    states = s.states
 
-file = requests.get(url)
+current_time = int(time.time())
 
-if file is not None:
-    arr = json.loads(file.text)
-    for i, record in enumerate(len(arr)):
-        print(record.)
-    
+print(states[0])
+
+# for state in states:
+#     print(current_time - state.last_contact)
