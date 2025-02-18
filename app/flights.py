@@ -1,18 +1,14 @@
-import http.client
+from opensky_api import OpenSkyApi
+import time
 
-conn = http.client.HTTPSConnection("travel-advisor.p.rapidapi.com")
+api = OpenSkyApi()
+s = api.get_states()
+if s is not None:
+    states = s.states
 
-payload = "{\"contentType\":\"hotel\",\"contentId\":\"4172546\",\"questionId\":\"8393250\",\"pagee\":0,\"updateToken\":\"\"}"
+current_time = int(time.time())
 
-headers = {
-    'x-rapidapi-key': "838acae028msh99bfae513199ebbp1415a4jsn4ae8b5fc2bb8",
-    'x-rapidapi-host': "travel-advisor.p.rapidapi.com",
-    'Content-Type': "application/json"
-}
+print(states[0])
 
-conn.request("POST", "/answers/v2/list?currency=USD&units=km&lang=en_US", payload, headers)
-
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode("utf-8"))
+# for state in states:
+#     print(current_time - state.last_contact)
