@@ -12,8 +12,10 @@ import time, math
 from opensky_api import OpenSkyApi # type: ignore
 
 current_time = math.floor(time.time())
-print(current_time)
 
-api = OpenSkyApi()
-flights_over_interval = api.get_flights_from_interval(1739834916, 1739835916)
-print(flights_over_interval)
+opensky = OpenSkyApi()
+departing_flights = opensky.get_departures_by_airport("KATL", current_time - 84600, current_time)
+
+for flight in departing_flights:
+    print(flight)
+    print('------')
